@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "rootDir": "src",
+    "moduleResolution": "node",
+    "declaration": true,
+    "outDir": "dist",
+    "lib": ["ES2021"]
+  },
+  "include": ["src/**/*.ts"]
+}

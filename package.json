@@ -1,0 +1,37 @@
+{
+  "name": "audioform",
+  "version": "0.0.0-development",
+  "description": "Extract waveform data from audio files in NodeJS",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "node",
+    "audio",
+    "waveform",
+    "waveform-data",
+    "server",
+    "visual"
+  ],
+  "author": "Hannes Diercks <hdiercks@musicu.be> (https://musicu.be/)",
+  "bugs": {
+    "url": "https://github.com/musicube-tech/audioform/issues"
+  },
+  "homepage": "https://github.com/musicube-tech/audioform#readme",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/musicube-tech/audioform.git"
+  },
+  "dependencies": {
+    "web-audio-api": "0.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "17.0.21",
+    "typescript": "4.6.2"
+  }
+}
