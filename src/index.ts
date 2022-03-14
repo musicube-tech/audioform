@@ -3,7 +3,7 @@ import { AudioContext } from 'web-audio-api';
 export interface AudioBuffer {
   getChannelData(channel: number): number[];
 }
-export interface FilteredDataOptions {
+export interface Options {
   channel?: number;
   samples?: number;
 }
@@ -17,9 +17,11 @@ interface IAudioContext {
 
 export default async function audioToWaveformData(
   buffer: Buffer,
-  options?: FilteredDataOptions,
+  { channel = 0, samples }: Options = {},
 ): Promise<number[]> {
-  return normalizeData(filteredData(await decodeAudio(buffer), options));
+  const audioBuffer = await decodeAudio(buffer);
+  const data = audioBuffer.getChannelData(channel);
+  return normalizeData(filteredData(data, samples));
 }
 
 export function decodeAudio(buffer: Buffer): Promise<AudioBuffer> {
@@ -30,10 +32,9 @@ export function decodeAudio(buffer: Buffer): Promise<AudioBuffer> {
 }
 
 export function filteredData(
-  audioBuffer: AudioBuffer,
-  { channel = 0, samples = 70 }: FilteredDataOptions = {},
+  rawData: number[],
+  samples: number = 70,
 ): number[] {
-  const rawData = audioBuffer.getChannelData(channel);
   const blockSize = Math.floor(rawData.length / samples);
   const filteredData = [];
   for (let i = 0; i < samples; i++) {

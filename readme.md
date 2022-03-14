@@ -17,9 +17,9 @@ npm install audioform
 
 ```typescript
 import { readFile } from 'fs/promises';
-import audioToWaveformData, { FilteredDataOptions } from 'audioform';
+import audioToWaveformData, { Options } from 'audioform';
 
-const options: FilteredDataOptions = {
+const options: Options = {
   samples: 70 // default
   channel: 0  // default
 }
