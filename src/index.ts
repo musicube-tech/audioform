@@ -49,7 +49,13 @@ export function filteredData(
   return filteredData;
 }
 
-export function normalizeData(filteredData: number[]): number[] {
-  const multiplier = Math.pow(Math.max(...filteredData), -1);
+export function getMultiplier(data: number[]) {
+  return Math.pow(Math.max(...data), -1);
+}
+
+export function normalizeData(
+  filteredData: number[],
+  multiplier = getMultiplier(filteredData),
+): number[] {
   return filteredData.map((n) => n * multiplier);
 }
