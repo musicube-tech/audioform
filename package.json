@@ -28,6 +28,8 @@
     "url": "git+ssh://git@github.com/musicube-tech/audioform.git"
   },
   "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "1.1.0",
+    "tempy": "1.0.1",
     "web-audio-api": "0.2.2"
   },
   "devDependencies": {
